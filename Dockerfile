@@ -1,9 +1,9 @@
 # Use OpenJDK 17 slim (Debian Bullseye)
-FROM openjdk:17.0.2-jdk-slim-bullseye
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
