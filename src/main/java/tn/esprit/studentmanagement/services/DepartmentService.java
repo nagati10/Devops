@@ -5,6 +5,7 @@ import tn.esprit.studentmanagement.entities.Department;
 import tn.esprit.studentmanagement.repositories.DepartmentRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class DepartmentService implements IDepartmentService {
@@ -21,7 +22,8 @@ public class DepartmentService implements IDepartmentService {
 
     @Override
     public Department getDepartmentById(Long idDepartment) {
-        return departmentRepository.findById(idDepartment).get();
+        return departmentRepository.findById(idDepartment)
+            .orElseThrow(() -> new NoSuchElementException("Department not found with id: " + idDepartment));
     }
 
     @Override
