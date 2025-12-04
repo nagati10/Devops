@@ -16,7 +16,6 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @WebMvcTest(StudentController.class)
 class StudentControllerTest {
@@ -42,16 +41,5 @@ class StudentControllerTest {
                 .andExpect(jsonPath("$.length()").value(students.size()))
                 .andExpect(jsonPath("$[0].firstName").value("John"))
                 .andExpect(jsonPath("$[1].firstName").value("Jane"));
-    }
-
-    @Test
-    void contextLoads() {
-        assertTrue(true);
-    }
-    
-    @Test
-    void simpleTest() {
-        int result = 2 + 2;
-        assertTrue(result == 4, "Basic math should work");
     }
 }
